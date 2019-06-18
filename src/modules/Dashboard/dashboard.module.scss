@@ -1,0 +1,32 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  
+}
+
+.control {
+  height: 100px;
+  // background-color: var(--coral);
+
+  display: flex;
+  align-items: center;
+  padding: var(--gutter);
+}
+
+.row {
+  display: flex;
+  flex: 1;
+}
+
+.helper {
+  flex-basis: 150px;
+  // background-color: var(--red);
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}

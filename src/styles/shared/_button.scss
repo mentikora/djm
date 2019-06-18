@@ -1,0 +1,17 @@
+.btn {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  padding: var(--btn-padding);
+  border-radius: var(--btn-radius);
+  text-transform: uppercase;
+  font-size: var(--btn-size);
+  transition: all .15s ease-in-out;
+  background-color: inherit;
+  color: var(--yellow);
+
+  &:hover,
+  &:focus {
+    color: var(--red);
+  }
+}

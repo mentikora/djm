@@ -1,35 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {createPlayer, deletePlayer} from '../../redux/actions/player';
-
+import Player from '../../components/Player';
 
 class PlayerList extends React.Component {
   render () {
     const {
       players,
-      createPlayer,
-      deletePlayer
     } = this.props;
     return (
-      <div>
-        <button type="button" onClick={() => {createPlayer()}}>
-          create player
-        </button>
-
+      <React.Fragment>
         {
-          players.length !== 0 && players.map(el => {
-            return (
-              <div key={el.id} onClick={() => {deletePlayer(el.id)}}>
-                {el.id}
-                <br/>
-                is playing: {el.isPlaying ? 'true' : 'false'}
-                <br/>
-                playlist: {el.playlist !== null ? 'got something': 'false'}
-              </div>
-            )
-          })
+          players.length !== 0 && players.map(el => <Player key={el.id} data={el} />)
         }
-      </div>
+      </React.Fragment>
     );
   }
 }
@@ -39,11 +22,5 @@ const mapStateToProps = state => {
     players: state.player
   }
 }
-const mapDispatchToProps = dispatch => {
-  return {
-    createPlayer: () => dispatch(createPlayer()),
-    deletePlayer: pid => dispatch(deletePlayer(pid))
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlayerList);
+export default connect(mapStateToProps, null)(PlayerList);

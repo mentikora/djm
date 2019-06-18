@@ -1,0 +1,37 @@
+.player {
+  // background-color: var(--red);
+  width: percentage(3/12);
+  height: percentage(6/12);
+
+  padding: var(--gutter);
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+
+}
+
+.playlist {
+
+}
+
+.actions {
+  margin-top: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  
+  .volume {
+    padding: {
+      top: var(--gutter);
+      bottom: var(--gutter);
+    }
+    width: 100%;
+  }
+
+  * {
+    flex-grow: 1;
+    text-align: center;
+  }
+}

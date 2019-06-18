@@ -12,3 +12,5 @@ export const PLAYER_PREV = 'PLAYER_PREV';
 export const PLAYER_NEXT = 'PLAYER_NEXT';
 export const PLAYER_VOLUME = 'PLAYER_VOLUME';
 export const PLAYER_SPEED = 'PLAYER_SPEED';
+export const PLAYER_LIST = 'PLAYER_LIST';
+export const PLAYER_CURRENT_TRACK = 'PLAYER_CURRENT_TRACK';

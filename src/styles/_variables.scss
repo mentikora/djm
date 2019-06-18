@@ -1,3 +1,13 @@
-$primary-color: #A3AAAE;
-$white: #fff;
-$black: #000;
+:root {
+  --black: #2E3033;
+  --white: #F3F3F3;
+  --blue: #5EB0E5;
+  --yellow: #F3D060;
+  --coral: #EE7762;
+  --red: #A5282C;
+  --gutter: 15px;
+  
+  --btn-radius: 4px;
+  --btn-padding: 6px;
+  --btn-size: 1rem;
+}

@@ -1,10 +1,10 @@
 import React from 'react';
-import PlayerList from '../PlayerList';
+import Dashboard from '../Dashboard';
 
 function App() {
   return (
     <div>
-      <PlayerList />
+      <Dashboard />
     </div>
   );
 }
