@@ -4,14 +4,14 @@
   cursor: pointer;
   padding: var(--btn-padding);
   border-radius: var(--btn-radius);
-  text-transform: uppercase;
   font-size: var(--btn-size);
-  transition: all .15s ease-in-out;
   background-color: inherit;
-  color: var(--yellow);
+  text-transform: uppercase;
+  color: var(--text);
 
   &:hover,
   &:focus {
-    color: var(--red);
+    background-color: rgba(#000, .1);
+    color: var(--white);
   }
 }

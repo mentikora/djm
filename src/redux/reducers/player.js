@@ -1,4 +1,7 @@
-import { PLAYER_CREATE, PLAYER_DELETE } from '../actions/types';
+import {
+  PLAYER_CREATE,
+  PLAYER_DELETE,
+} from '../actions/types';
 import uniqueId from 'lodash/uniqueId';
 import findIndex from 'lodash/findIndex';
 

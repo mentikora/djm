@@ -1,20 +1,24 @@
 .player {
-  // background-color: var(--red);
   width: percentage(3/12);
   height: percentage(6/12);
 
   padding: var(--gutter);
   display: flex;
   flex-direction: column;
+
+
+  &.isCompact {
+    background-color: var(--highlight);
+  }
 }
 
-.info {
+// .info {
 
-}
+// }
 
-.playlist {
+// .playlist {
 
-}
+// }
 
 .actions {
   margin-top: auto;

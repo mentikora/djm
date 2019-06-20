@@ -6,6 +6,7 @@ export const ALL_VOLUME = 'ALL_VOLUME';
 // player
 export const PLAYER_CREATE = 'PLAYER_CREATE';
 export const PLAYER_DELETE = 'PLAYER_DELETE';
+export const PLAYER_COMPACT = 'PLAYER_COMPACT';
 export const PLAYER_PLAY = 'PLAYER_PLAY';
 export const PLAYER_PAUSE = 'PLAYER_PAUSE';
 export const PLAYER_PREV = 'PLAYER_PREV';

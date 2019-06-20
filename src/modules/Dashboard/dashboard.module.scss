@@ -1,18 +1,16 @@
 .wrapper {
   min-height: 100vh;
+  
   display: flex;
   flex-direction: column;
-
-  
 }
 
 .control {
   height: 100px;
-  // background-color: var(--coral);
+  padding: var(--gutter);
 
   display: flex;
   align-items: center;
-  padding: var(--gutter);
 }
 
 .row {

@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deletePlayer} from '../../redux/actions/player';
+import Button from '../Button';
 import styles from './player.module.scss';
+import cx from 'classnames';
 
 class Player extends React.Component {
   render () {
@@ -9,15 +11,19 @@ class Player extends React.Component {
       deletePlayer,
       data: {
         id
-      }
+      },
+      compact
     } = this.props;
     return (
-      <div className={styles.player}>
-        <button className="btn" onClick={() => deletePlayer(id)}>
-          &times;
-        </button>
+      <div className={cx(`${styles.player}`, {[styles.isCompact]: compact})}>
+        <Button onClick={() => deletePlayer(id)}>
+          <i className="icon-cancel" />
+        </Button>
+        <Button>
+          ops
+        </Button>
         <div className={styles.info}>
-          id: {id}
+          id: {id}, is compact: {`${compact}`}
         </div>
         <div className={styles.playlist}>
           playlist
@@ -26,13 +32,27 @@ class Player extends React.Component {
           <div className={styles.volume}>
             volume
           </div>
-          <button className="btn">prev</button>
-          <button className="btn">play</button>
-          <button className="btn">pause</button>
-          <button className="btn">next</button>
+          <button className="btn">
+            <i className="icon-fast-bw" />
+          </button>
+          <button className="btn">
+            <i className="icon-play" />
+          </button>
+          {/* pause <button className="btn">
+            <i className="icon-play" />
+          </button> */}
+          <button className="btn">
+            <i className="icon-fast-fw" />
+          </button>
         </div>
       </div>
     );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    compact: state.settings.compact
   }
 }
 
@@ -42,4 +62,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Player);
+export default connect(mapStateToProps, mapDispatchToProps)(Player);
