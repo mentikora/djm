@@ -19,11 +19,20 @@ class Player extends React.Component {
         <Button onClick={() => deletePlayer(id)}>
           <i className="icon-cancel" />
         </Button>
-        <div className={styles.info}>
+        {/* <div className={styles.info}>
           id: {id}, is compact: {`${compact}`}
-        </div>
+        </div> */}
         <div className={styles.playlist}>
-          playlist
+          playlist<br/>
+          playlist<br/>
+          playlist<br/>
+          playlist<br/>
+          playlist<br/>
+          playlist<br/>
+          playlist<br/>
+          playlist<br/>
+          playlist<br/>
+          playlist<br/>
         </div>
         <div className={styles.actions}>
           <div className={styles.volume}>

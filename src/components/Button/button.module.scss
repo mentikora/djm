@@ -5,13 +5,14 @@
   padding: var(--btn-padding);
   border-radius: var(--btn-radius);
   font-size: var(--btn-size);
-  background-color: inherit;
+  background-color: transparent;
   text-transform: uppercase;
+  font-size: 1rem;
   color: var(--text);
 
   &:hover,
   &:focus {
-    background-color: rgba(#000, .1);
-    color: var(--white);
+    background-color: var(--highlight);
+    color: var(--text-invert);
   }
 }

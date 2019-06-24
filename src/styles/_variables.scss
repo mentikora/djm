@@ -1,19 +1,15 @@
 :root {
-  --primary: #F3F3F3;
+  --primary: #dfe4ea;
   --secondary: #2E3033;
-  --text: #2E3033;
-  --highlight: #F3D060;
-
-  --black: #2E3033;
-  --white: #F3F3F3;
-  --blue: #5EB0E5;
-  --yellow: #F3D060;
-  --coral: #EE7762;
-  --red: #A5282C;
+  --text: #2f3542;
+  --highlight: #ff4757;
+  --text-invert: #fff;
   
   --gutter: 15px;
+
+  --fontSize: 14px;
   
   --btn-radius: 4px;
-  --btn-padding: 6px;
+  --btn-padding: 8px 12px;
   --btn-size: 1rem;
 }
