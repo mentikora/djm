@@ -19,9 +19,6 @@ class Player extends React.Component {
         <Button onClick={() => deletePlayer(id)}>
           <i className="icon-cancel" />
         </Button>
-        <Button>
-          ops
-        </Button>
         <div className={styles.info}>
           id: {id}, is compact: {`${compact}`}
         </div>
@@ -32,18 +29,18 @@ class Player extends React.Component {
           <div className={styles.volume}>
             volume
           </div>
-          <button className="btn">
+          <Button>
             <i className="icon-fast-bw" />
-          </button>
-          <button className="btn">
+          </Button>
+          <Button>
             <i className="icon-play" />
-          </button>
+          </Button>
           {/* pause <button className="btn">
             <i className="icon-play" />
           </button> */}
-          <button className="btn">
+          <Button>
             <i className="icon-fast-fw" />
-          </button>
+          </Button>
         </div>
       </div>
     );
