@@ -7,28 +7,27 @@ import { compactPlayer } from '../../redux/actions/settings';
 import styles from './dashboard.module.scss';
 import { en } from '../../utils/translation';
 
-import { Translation } from 'react-i18next';
+// import { Translation } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 class Dashboard extends React.Component {
   render () {
-    const { createPlayer, compactPlayer, compact, player } = this.props;
+    const { t, i18n, createPlayer, compactPlayer, compact, player } = this.props;
     return (
       <section className={styles.wrapper}>
         <header className={styles.header}>
           <Button onClick={() => {createPlayer()}}>
-          <Translation>
-            {
-              t => <span>{t('createPlayer')}</span>
-            }
-          </Translation>
+            {t('createPlayer')}
           </Button>
           <Button
             disabled={!player.length === 0}
             className={compact ? styles.isActive : null}
             onClick={() => {compactPlayer()}}
           >
-            {en.compactPlayer}
+            {t('compactPlayer')}
           </Button>
+          <Button onClick={() => i18n.changeLanguage('jp')}>JP</Button>
+          <Button onClick={() => i18n.changeLanguage('en')}>EN</Button>
         </header>
         <div className={styles.row}>
           {/* <aside className={styles.helper}>
@@ -55,4 +54,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default withTranslation()(connect(mapStateToProps, mapDispatchToProps)(Dashboard));
