@@ -33,9 +33,11 @@ class Player extends React.Component {
           {[styles.isCompact]: compact}
         )
       }>
-        <Button onClick={() => deletePlayer(id)}>
-          <i className="icon-cancel" />
-        </Button>
+        <div className="text-right">
+          <Button className={styles.btnDelete} onClick={() => deletePlayer(id)}>
+            <i className="icon-cancel" />
+          </Button>
+        </div>
         {/* <div className={styles.info}>
           id: {id}, is compact: {`${compact}`}
         </div> */}
@@ -43,10 +45,13 @@ class Player extends React.Component {
           <Playlist list={fakelist} />
         </div>
         <div className={styles.actions}>
+          <div className={styles.playspeed}>
+            playspeed
+          </div>
           <div className={styles.volume}>
             volume
           </div>
-          <Button>
+          <Button disabled>
             <i className="icon-fast-bw" />
           </Button>
           <Button>

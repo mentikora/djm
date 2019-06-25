@@ -2,6 +2,7 @@
   border: 0;
   outline: 0;
   cursor: pointer;
+  min-width: 64px;
   padding: var(--btn-padding);
   border-radius: var(--btn-radius);
   background-color: transparent;
@@ -9,10 +10,19 @@
   font-size: 1rem;
   font-family: inherit;
   color: var(--text);
+  letter-spacing: var(--letter-spacing);
 
   &:hover,
-  &:focus {
-    background-color: var(--highlight);
-    color: var(--text-invert);
+  // &:focus 
+  {
+    &:not(:disabled){
+      background-color: var(--highlight);
+      color: var(--text-invert);
+    }
+  }
+
+  &:disabled {
+    opacity: .3;
+    cursor: default;
   }
 }

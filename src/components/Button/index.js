@@ -11,10 +11,18 @@ const Button = ({
   action,
   children,
   onClick,
+  disabled,
   ...props,
 }) => {
   return (
-    <button type={type} onClick={onClick} className={cx(styles.btn, [className])}>
+    <button
+      disabled={disabled}
+      type={type}
+      onClick={onClick}
+      className={
+        cx(styles.btn, [className])
+      }
+    >
       {children}
     </button>
   );

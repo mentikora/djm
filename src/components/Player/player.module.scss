@@ -24,7 +24,7 @@
   margin: auto 0;
   overflow: auto;
   
-  font-family: var(--defaultFont);
+  font-family: var(--default-font);
   color: var(--text-invert);
   background-color: var(--secondary);
 }
@@ -35,7 +35,8 @@
   display: flex;
   flex-wrap: wrap;
   
-  .volume {
+  .volume,
+  .playspeed {
     padding: {
       top: var(--gutter);
       bottom: var(--gutter);
@@ -47,4 +48,8 @@
     flex-grow: 1;
     text-align: center;
   }
+}
+
+.btnDelete {
+  width: 64px;
 }

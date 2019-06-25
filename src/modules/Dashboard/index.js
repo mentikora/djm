@@ -9,14 +9,14 @@ import { en } from '../../utils/translation';
 
 class Dashboard extends React.Component {
   render () {
-    const { createPlayer, compactPlayer } = this.props;
+    const { createPlayer, compactPlayer, compact } = this.props;
     return (
       <section className={styles.wrapper}>
         <header className={styles.header}>
-          <Button type="button" onClick={() => {createPlayer()}}>
+          <Button onClick={() => {createPlayer()}}>
             {en.createPlayer}
           </Button>
-          <Button type="button" onClick={() => {compactPlayer()}}>
+          <Button className={compact ? styles.isActive : null} onClick={() => {compactPlayer()}}>
             {en.compactPlayer}
           </Button>
         </header>
@@ -32,6 +32,11 @@ class Dashboard extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    compact: state.settings.compact
+  }
+}
 const mapDispatchToProps = dispatch => {
   return {
     createPlayer: () => dispatch(createPlayer()),
@@ -39,4 +44,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
