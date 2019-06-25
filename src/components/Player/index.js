@@ -4,6 +4,18 @@ import { deletePlayer} from '../../redux/actions/player';
 import Button from '../Button';
 import styles from './player.module.scss';
 import cx from 'classnames';
+import Playlist from './playlist';
+
+const fakelist = [
+  {
+    name: 'Metallica - Orion',
+    duration: '5:21'
+  },
+  {
+    name: 'ACDC',
+    duration: 'Back to black'
+  },
+]
 
 class Player extends React.Component {
   render () {
@@ -15,7 +27,12 @@ class Player extends React.Component {
       compact
     } = this.props;
     return (
-      <div className={cx(`${styles.player}`, {[styles.isCompact]: compact})}>
+      <div className={
+        cx(
+          `${styles.player} shadow-4`,
+          {[styles.isCompact]: compact}
+        )
+      }>
         <Button onClick={() => deletePlayer(id)}>
           <i className="icon-cancel" />
         </Button>
@@ -23,16 +40,7 @@ class Player extends React.Component {
           id: {id}, is compact: {`${compact}`}
         </div> */}
         <div className={styles.playlist}>
-          playlist<br/>
-          playlist<br/>
-          playlist<br/>
-          playlist<br/>
-          playlist<br/>
-          playlist<br/>
-          playlist<br/>
-          playlist<br/>
-          playlist<br/>
-          playlist<br/>
+          <Playlist list={fakelist} />
         </div>
         <div className={styles.actions}>
           <div className={styles.volume}>

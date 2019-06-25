@@ -12,7 +12,7 @@ class Dashboard extends React.Component {
     const { createPlayer, compactPlayer } = this.props;
     return (
       <section className={styles.wrapper}>
-        <header className={styles.control}>
+        <header className={styles.header}>
           <Button type="button" onClick={() => {createPlayer()}}>
             {en.createPlayer}
           </Button>
@@ -21,8 +21,8 @@ class Dashboard extends React.Component {
           </Button>
         </header>
         <div className={styles.row}>
-          <aside className={styles.helper}>
-          </aside>
+          {/* <aside className={styles.helper}>
+          </aside> */}
           <aside className={styles.content}>
             <PlayerList/>
           </aside>

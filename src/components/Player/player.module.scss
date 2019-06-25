@@ -1,19 +1,17 @@
 .player {
-  margin: 10px;
-
-  width: calc(#{percentage(3/12)} - 20px);
-  // height: percentage(6/12);
-  height: 300px;
-
   padding: var(--gutter);
+  margin: 5px;
+
   display: flex;
   flex-direction: column;
-
-  box-shadow: 0 1px 2px 0 rgba(#000, .1);
-  background-color: rgba(#fff, .3);
-
+  flex-grow: 1;
+  
+  background-color: var(--white);
+  
   &.isCompact {
-    background-color: var(--highlight);
+    .playlist {
+      height: 50px;
+    }
   }
 }
 
@@ -22,10 +20,12 @@
 // }
 
 .playlist {
-  color: var(--text-invert);
   height: 150px;
   margin: auto 0;
   overflow: auto;
+  
+  font-family: var(--defaultFont);
+  color: var(--text-invert);
   background-color: var(--secondary);
 }
 
