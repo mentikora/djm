@@ -2,11 +2,15 @@
   padding: var(--gutter);
   margin: 5px;
 
+  min-width: 250px;
+
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   
-  background-color: var(--white);
+  // background-color: var(--white);
+
+  background-color: rgba(#fff, .7);
   
   &.isCompact {
     .playlist {

@@ -8,6 +8,7 @@ body {
   font-size: var(--font-size);
   font-family: var(--custom-font);
   letter-spacing: --letter-spacing;
+  overflow: hidden;
 }
 
 * {
