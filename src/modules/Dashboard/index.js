@@ -7,20 +7,23 @@ import { compactPlayer } from '../../redux/actions/settings';
 import styles from './dashboard.module.scss';
 import { en } from '../../utils/translation';
 
+import { Translation } from 'react-i18next';
+
 class Dashboard extends React.Component {
   render () {
     const { createPlayer, compactPlayer, compact, player } = this.props;
     return (
       <section className={styles.wrapper}>
-        {
-          console.log(this.props.player.length)
-        }
         <header className={styles.header}>
           <Button onClick={() => {createPlayer()}}>
-            {en.createPlayer}
+          <Translation>
+            {
+              t => <span>{t('createPlayer')}</span>
+            }
+          </Translation>
           </Button>
           <Button
-            disabled={!player.length}
+            disabled={!player.length === 0}
             className={compact ? styles.isActive : null}
             onClick={() => {compactPlayer()}}
           >
