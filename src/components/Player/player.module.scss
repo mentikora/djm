@@ -52,6 +52,10 @@
   }
 }
 
-.btnDelete {
+.playerControlButton {
   width: 64px;
+
+  &.isActive {
+    color: var(--highlight);
+  }
 }

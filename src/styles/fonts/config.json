@@ -83,6 +83,18 @@
       "css": "eject",
       "code": 59400,
       "src": "fontawesome"
+    },
+    {
+      "uid": "c1f1975c885aa9f3dad7810c53b82074",
+      "css": "lock",
+      "code": 59401,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "eeec3208c90b7b48e804919d0d2d4a41",
+      "css": "upload",
+      "code": 59402,
+      "src": "fontawesome"
     }
   ]
 }

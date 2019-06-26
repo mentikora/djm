@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './range.module.scss';
 
-const { func, string } = PropTypes;
+const { func, number } = PropTypes;
 
 class Range extends React.Component {
   constructor(props) {
@@ -13,8 +13,8 @@ class Range extends React.Component {
   }
   static propTypes = {
     onChange: func,
-    min: string,
-    max: string
+    min: number,
+    max: number
   }
   static defaultProps = {
     min: 0,

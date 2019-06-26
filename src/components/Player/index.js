@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deletePlayer} from '../../redux/actions/player';
 import cx from 'classnames';
 
 import Button from '../Button';
 import Range from '../Range';
 import Playlist from './playlist';
+
+import { deletePlayer} from '../../redux/actions/player';
 
 import styles from './player.module.scss';
 
@@ -25,7 +26,8 @@ class Player extends React.Component {
     super(props);
     this.state = {
       speed: 100,
-      volume: 100
+      volume: 100,
+      lock: false,
     }
   }
 
@@ -39,8 +41,11 @@ class Player extends React.Component {
       volume: newPlayerVolume
     })
   }
-  
 
+  lockPlayer = () => {
+    this.setState(prevState => ({lock: !prevState.lock}));
+  }
+  
   render () {
     const {
       deletePlayer,
@@ -57,7 +62,22 @@ class Player extends React.Component {
         )
       }>
         <div className="text-right">
-          <Button className={styles.btnDelete} onClick={() => deletePlayer(id)}>
+          <Button
+            className={
+              cx(
+                styles.playerControlButton,
+                {[styles.isActive]: this.state.lock}
+              )
+            }
+            onClick={this.lockPlayer}
+            >
+            <i className="icon-lock" />
+          </Button>
+          <Button
+            disabled={this.state.lock}
+            className={styles.playerControlButton}
+            onClick={() => deletePlayer(id)}
+          >
             <i className="icon-cancel" />
           </Button>
         </div>
@@ -69,7 +89,7 @@ class Player extends React.Component {
         </div>
         <div className={styles.actions}>
           <div className={styles.playspeed}>
-            <Range max="200" onChange={this.onSpeedChange.bind(this)}/>
+            <Range max={200} onChange={this.onSpeedChange.bind(this)}/>
           </div>
           <div className={styles.volume}>
             <Range onChange={this.onVolumeChange.bind(this)}/>
