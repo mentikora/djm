@@ -70,16 +70,16 @@ class Player extends React.Component {
               )
             }
             onClick={this.lockPlayer}
-            >
-            <i className="icon-lock" />
-          </Button>
+            icon="icon-lock"
+            title="lock"
+          />
           <Button
             disabled={this.state.lock}
             className={styles.playerControlButton}
             onClick={() => deletePlayer(id)}
-          >
-            <i className="icon-cancel" />
-          </Button>
+            icon="icon-cancel"
+            title="delete"
+          />
         </div>
         {/* <div className={styles.info}>
           id: {id}, is compact: {`${compact}`}
@@ -94,18 +94,21 @@ class Player extends React.Component {
           <div className={styles.volume}>
             <Range onChange={this.onVolumeChange.bind(this)}/>
           </div>
-          <Button disabled>
-            <i className="icon-fast-bw" />
-          </Button>
-          <Button>
-            <i className="icon-play" />
-          </Button>
+          <Button
+            icon="icon-fast-bw"
+            title="prev"
+          />
+          <Button
+            icon="icon-play"
+            title="play"
+          />
           {/* pause <button className="btn">
             <i className="icon-play" />
           </button> */}
-          <Button>
-            <i className="icon-fast-fw" />
-          </Button>
+          <Button
+            icon="icon-fast-fw"
+            title="next"
+          />
         </div>
       </div>
     );

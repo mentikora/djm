@@ -12,6 +12,8 @@ const Button = ({
   children,
   onClick,
   disabled,
+  icon,
+  title,
   ...props,
 }) => {
   return (
@@ -19,11 +21,14 @@ const Button = ({
       disabled={disabled}
       type={type}
       onClick={onClick}
+      title={title}
       className={
         cx(styles.btn, [className])
       }
     >
-      {children}
+      {
+        icon ? <i className={icon} /> : children
+      }
     </button>
   );
 }
@@ -32,10 +37,13 @@ Button.propTypes = {
   className: string,
   type: string,
   onClick: func,
+  icon: string,
+  title: string
 }
 
 Button.defaultProps = {
-  type: 'button'
+  type: 'button',
+  title: '',
 }
 
 export default Button;
