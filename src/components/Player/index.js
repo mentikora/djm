@@ -24,7 +24,8 @@ class Player extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      speed: 100
+      speed: 100,
+      volume: 100
     }
   }
 
@@ -33,6 +34,12 @@ class Player extends React.Component {
       speed: newPlayerSpeed
     })
   }
+  onVolumeChange(newPlayerVolume) {
+    this.setState({
+      volume: newPlayerVolume
+    })
+  }
+  
 
   render () {
     const {
@@ -62,10 +69,10 @@ class Player extends React.Component {
         </div>
         <div className={styles.actions}>
           <div className={styles.playspeed}>
-            <Range onChange={this.onSpeedChange.bind(this)}/>
+            <Range max="200" onChange={this.onSpeedChange.bind(this)}/>
           </div>
           <div className={styles.volume}>
-            volume
+            <Range onChange={this.onVolumeChange.bind(this)}/>
           </div>
           <Button disabled>
             <i className="icon-fast-bw" />

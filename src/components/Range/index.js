@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './range.module.scss';
 
-const { func } = PropTypes;
+const { func, string } = PropTypes;
 
 class Range extends React.Component {
   constructor(props) {
@@ -13,6 +13,12 @@ class Range extends React.Component {
   }
   static propTypes = {
     onChange: func,
+    min: string,
+    max: string
+  }
+  static defaultProps = {
+    min: 0,
+    max: 100
   }
 
   handleRangeChange(event) {
@@ -25,14 +31,15 @@ class Range extends React.Component {
 
   render() {
     const { value } = this.state;
+    const { min, max } = this.props;
 
     return (
       <div className={styles.range}>
         {value}
         <hr/>
         <input
-          min="0"
-          max="100"
+          min={min}
+          max={max}
           type="range"
           value={value}
           onChange={this.handleRangeChange.bind(this)}
