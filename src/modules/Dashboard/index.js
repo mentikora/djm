@@ -20,7 +20,7 @@ class Dashboard extends React.Component {
             {t('createPlayer')}
           </Button>
           <Button
-            disabled={!player.length === 0}
+            disabled={player.length === 0}
             className={compact ? styles.isActive : null}
             onClick={() => {compactPlayer()}}
           >
@@ -33,6 +33,8 @@ class Dashboard extends React.Component {
           {/* <aside className={styles.helper}>
           </aside> */}
           <aside className={styles.content}>
+            <input type="range" />
+            <div/>
             <PlayerList/>
           </aside>
         </div>
