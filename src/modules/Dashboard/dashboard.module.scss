@@ -3,8 +3,6 @@
   
   display: flex;
   flex-direction: column;
-
-  // background-color: var(--primary);
 }
 
 .header {
@@ -13,8 +11,6 @@
 
   display: flex;
   align-items: center;
-
-  // background-color: var(--white);
 }
 
 .row {
@@ -24,13 +20,11 @@
 
 .helper {
   flex-basis: 150px;
-  // background-color: var(--red);
 }
 
 .content {
   display: flex;
   flex: 1;
-  // flex-wrap: wrap;
   overflow-x: auto;
   
   padding: 5px;

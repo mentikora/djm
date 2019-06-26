@@ -1,10 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deletePlayer} from '../../redux/actions/player';
-import Button from '../Button';
-import styles from './player.module.scss';
 import cx from 'classnames';
+
+import Button from '../Button';
+import Range from '../Range';
 import Playlist from './playlist';
+
+import styles from './player.module.scss';
 
 const fakelist = [
   {
@@ -18,6 +21,19 @@ const fakelist = [
 ]
 
 class Player extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      speed: 100
+    }
+  }
+
+  onSpeedChange(newPlayerSpeed) {
+    this.setState({
+      speed: newPlayerSpeed
+    })
+  }
+
   render () {
     const {
       deletePlayer,
@@ -46,7 +62,7 @@ class Player extends React.Component {
         </div>
         <div className={styles.actions}>
           <div className={styles.playspeed}>
-            playspeed
+            <Range onChange={this.onSpeedChange.bind(this)}/>
           </div>
           <div className={styles.volume}>
             volume
