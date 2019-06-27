@@ -21,13 +21,26 @@ class Dashboard extends React.Component {
           </Button>
           <Button
             disabled={player.length === 0}
-            className={compact ? styles.isActive : null}
+            className={compact ? styles.isActive : ''}
             onClick={() => {compactPlayer()}}
           >
             {t('compactPlayer')}
           </Button>
-          <Button onClick={() => i18n.changeLanguage('jp')}>JP</Button>
-          <Button onClick={() => i18n.changeLanguage('en')}>EN</Button>
+          {
+            console.log(i18n)
+          }
+          <Button
+            className={i18n.language === 'jp' ? styles.isActive : ''}
+            onClick={() => i18n.changeLanguage('jp')}
+          >
+              JP
+          </Button>
+          <Button
+            className={i18n.language === 'en' ? styles.isActive : ''}
+            onClick={() => i18n.changeLanguage('en')}
+          >
+            EN
+          </Button>
         </header>
         <div className={styles.row}>
           {/* <aside className={styles.helper}>
