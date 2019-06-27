@@ -4,5 +4,9 @@ export const en = {
     "compactPlayer": "Compact",
     "en": "EN",
     "jp": "JP",
+    "upload": "Upload",
+    "prev": "Previous",
+    "play": "Play",
+    "next": "Next",
   }
 }

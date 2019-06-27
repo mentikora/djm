@@ -4,5 +4,9 @@ export const jp = {
     "compactPlayer": "コンパクト",
     "en": "EN",
     "jp": "JP",
+    "upload": "アップロードする",
+    "prev": "前の",
+    "play": "遊びます",
+    "next": "次",
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import cx from 'classnames';
+import { withTranslation } from 'react-i18next';
 
 import Button from '../Button';
 import Range from '../Range';
@@ -52,7 +53,8 @@ class Player extends React.Component {
       data: {
         id
       },
-      compact
+      compact,
+      t
     } = this.props;
     return (
       <div className={
@@ -81,34 +83,40 @@ class Player extends React.Component {
             title="delete"
           />
         </div>
-        {/* <div className={styles.info}>
-          id: {id}, is compact: {`${compact}`}
-        </div> */}
-        <div className={styles.playlist}>
-          <Playlist list={fakelist} />
-        </div>
-        <div className={styles.actions}>
-          <div className={styles.playspeed}>
-            <Range max={200} onChange={this.onSpeedChange.bind(this)}/>
+        <div className={styles.container}>
+          <div className={styles.side}>
+            <div className={styles.playlist}>
+              <Playlist list={fakelist} />
+            </div>
           </div>
-          <div className={styles.volume}>
-            <Range onChange={this.onVolumeChange.bind(this)}/>
+          <div className={styles.side}>
+            <div className={styles.actions}>
+              <Button
+                icon="icon-upload"
+                title={t('upload')}
+              />
+            </div>
+            <div className={styles.playspeed}>
+              <Range max={200} onChange={this.onSpeedChange.bind(this)}/>
+            </div>
+            <div className={styles.volume}>
+              <Range onChange={this.onVolumeChange.bind(this)}/>
+            </div>
+            <div className={styles.actions}>
+              <Button
+                icon="icon-fast-bw"
+                title={t('prev')}
+              />
+              <Button
+                icon="icon-play"
+                title={t('play')}
+              />
+              <Button
+                icon="icon-fast-fw"
+                title={t('next')}
+              />
+            </div>
           </div>
-          <Button
-            icon="icon-fast-bw"
-            title="prev"
-          />
-          <Button
-            icon="icon-play"
-            title="play"
-          />
-          {/* pause <button className="btn">
-            <i className="icon-play" />
-          </button> */}
-          <Button
-            icon="icon-fast-fw"
-            title="next"
-          />
         </div>
       </div>
     );
@@ -127,4 +135,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Player);
+export default withTranslation()(connect(mapStateToProps, mapDispatchToProps)(Player));

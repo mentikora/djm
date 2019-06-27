@@ -24,8 +24,8 @@
 
 .content {
   display: flex;
+  flex-wrap: wrap;
   flex: 1;
-  overflow-x: auto;
   
   padding: 5px;
 }

@@ -43,7 +43,7 @@ class Dashboard extends React.Component {
           {/* <aside className={styles.helper}>
           </aside> */}
           <aside className={styles.content}>
-            <div/>
+            {/* <div/> */}
             <PlayerList/>
           </aside>
         </div>

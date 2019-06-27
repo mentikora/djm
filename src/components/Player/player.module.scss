@@ -2,7 +2,7 @@
   padding: var(--gutter);
   margin: 5px;
 
-  min-width: 250px;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -11,18 +11,27 @@
   background-color: rgba(#fff, .7);
   
   &.isCompact {
-    .playlist {
-      height: 50px;
-    }
+    flex-grow: 0;
+    width: 50%;
+    max-width: calc(50% - var(--gutter) * 2);
+    flex-basis: calc(50% - var(--gutter) * 2);
   }
 }
 
-// .info {
 
-// }
+.container {
+  width: 100%;
+  display: flex;
+}
+.side {
+  max-width: 50%;
+  flex-basis: 50%;
+
+  padding: 10px;
+}
 
 .playlist {
-  height: 150px;
+  height: 100%;
   margin: auto 0;
   overflow: auto;
   

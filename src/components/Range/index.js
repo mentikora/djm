@@ -36,7 +36,6 @@ class Range extends React.Component {
     return (
       <div className={styles.range}>
         {value}
-        <hr/>
         <input
           min={min}
           max={max}
