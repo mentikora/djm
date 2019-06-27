@@ -26,20 +26,17 @@ class Dashboard extends React.Component {
           >
             {t('compactPlayer')}
           </Button>
-          {
-            console.log(i18n)
-          }
           <Button
             className={i18n.language === 'jp' ? styles.isActive : ''}
             onClick={() => i18n.changeLanguage('jp')}
           >
-              JP
+            {t('jp')}
           </Button>
           <Button
             className={i18n.language === 'en' ? styles.isActive : ''}
             onClick={() => i18n.changeLanguage('en')}
           >
-            EN
+            {t('en')}
           </Button>
         </header>
         <div className={styles.row}>

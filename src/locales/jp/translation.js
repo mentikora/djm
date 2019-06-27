@@ -1,6 +1,8 @@
 export const jp = {
   translation: {
     "createPlayer": "作る",
-    "compactPlayer": "コンパクト"
+    "compactPlayer": "コンパクト",
+    "en": "EN",
+    "jp": "JP",
   }
 }
