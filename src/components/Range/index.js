@@ -35,7 +35,12 @@ class Range extends React.Component {
 
     return (
       <div className={styles.range}>
-        {value}
+        {/* {value} */}
+        <div className={styles.rangeMarks}>
+          <div className={styles.mark}>{min}</div>
+          <div className={styles.mark}>{value}</div>
+          <div className={styles.mark}>{max}</div>
+        </div>
         <input
           min={min}
           max={max}

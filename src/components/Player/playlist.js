@@ -11,6 +11,7 @@ const Track = props => {
   );
 }
 
+// add react-beautiful-dnd
 const Playlist = props => {
   const { list } = props;
   return (
