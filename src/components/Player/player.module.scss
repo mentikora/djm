@@ -41,11 +41,11 @@
 }
 
 .actions {
-  margin-top: auto;
-
   display: flex;
   flex-wrap: wrap;
-  
+
+  margin-top: auto;
+
   .volume,
   .playspeed {
     padding: {
@@ -66,5 +66,38 @@
 
   &.isActive {
     color: var(--highlight);
+  }
+}
+
+// hide input[file]
+.hidden {
+  display: none;
+}
+
+// track & playlist
+.playlist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.track {
+  padding: calc(var(--gutter) / 2);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--highlight);
+  }
+  &.isActive {
+    background-color: var(--white);
+    color: var(--highlight);
+  }
+
+  .name,
+  .duration {
+    margin: 0;
+  }
+  .duration {
+    font-size: .8rem;
   }
 }

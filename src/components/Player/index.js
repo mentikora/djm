@@ -30,6 +30,14 @@ class Player extends React.Component {
       volume: 100,
       lock: false,
     }
+
+    this.inputUploadRef = React.createRef();
+
+    this.onUploadPlaylist = this.onUploadPlaylist.bind(this);
+  }
+
+  lockPlayer = () => {
+    this.setState(prevState => ({lock: !prevState.lock}));
   }
 
   onSpeedChange(newPlayerSpeed) {
@@ -42,10 +50,10 @@ class Player extends React.Component {
       volume: newPlayerVolume
     })
   }
-
-  lockPlayer = () => {
-    this.setState(prevState => ({lock: !prevState.lock}));
+  onUploadPlaylist(){
+    this.inputUploadRef.current.click();
   }
+
   
   render () {
     const {
@@ -91,9 +99,17 @@ class Player extends React.Component {
           </div>
           <div className={styles.side}>
             <div className={styles.actions}>
+              <input
+                type="file"
+                className={styles.hidden}
+                accept=".WAV, .MP3, .Ogg, .AAC"
+                ref={this.inputUploadRef}
+                multiple
+              />
               <Button
                 icon="icon-upload"
                 title={t('upload')}
+                onClick={this.onUploadPlaylist}
               />
             </div>
             <div className={styles.playspeed}>

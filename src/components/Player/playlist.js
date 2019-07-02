@@ -1,10 +1,12 @@
 import React from 'react';
+import styles from './player.module.scss';
 
 const Track = props => {
   const { data } = props;
   return (
-    <li>
-      {data.name}{data.duration}
+    <li className={styles.track}>
+      <p className={styles.name}>{data.name}</p>
+      <p className={styles.duration}>{data.duration}</p>
     </li>
   );
 }
@@ -12,9 +14,9 @@ const Track = props => {
 const Playlist = props => {
   const { list } = props;
   return (
-    <ul>
+    <ul className={styles.playlist}>
       {
-        list.map(el => <Track data={el} />)
+        list.map(el => <Track key={el.name} data={el} />)
       }
     </ul>
   );
