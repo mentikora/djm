@@ -14,7 +14,7 @@ const Button = ({
   disabled,
   icon,
   title,
-  ...props,
+  ...rest
 }) => {
   return (
     <button

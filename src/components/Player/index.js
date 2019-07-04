@@ -81,14 +81,14 @@ class Player extends React.Component {
             }
             onClick={this.lockPlayer}
             icon="icon-lock"
-            title="lock"
+            title={t('lock')}
           />
           <Button
             disabled={this.state.lock}
             className={styles.playerControlButton}
             onClick={() => deletePlayer(id)}
             icon="icon-cancel"
-            title="delete"
+            title={t('delete')}
           />
         </div>
         <div className={styles.container}>
@@ -113,10 +113,17 @@ class Player extends React.Component {
               />
             </div>
             <div className={styles.playspeed}>
-              <Range max={200} onChange={this.onSpeedChange.bind(this)}/>
+              <Range
+                max={200}
+                icon="icon-sliders"
+                onChange={this.onSpeedChange.bind(this)}
+              />
             </div>
             <div className={styles.volume}>
-              <Range onChange={this.onVolumeChange.bind(this)}/>
+              <Range
+                icon="icon-volume-up"
+                onChange={this.onVolumeChange.bind(this)}
+              />
             </div>
             <div className={styles.actions}>
               <Button

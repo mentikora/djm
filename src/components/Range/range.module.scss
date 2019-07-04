@@ -1,9 +1,8 @@
 .range {
   margin: {
-    top: calc(var(--gutter) / 2);
-    bottom: calc(var(--gutter) / 2);
+    top: var(--gutter);
+    bottom: var(--gutter);
   }
-  // margin-bottom: var(--gutter);
 
   input[type=range] {
     -webkit-appearance: none;
@@ -102,8 +101,13 @@
   text-align: center;
 }
 .mark {
-  width: 35px;
-  
+  min-width: 35px;
+
+  i {
+    margin-right: calc(var(--gutter) / 2);
+  }
+
+  i,
   &:first-child,
   &:last-child {
     opacity: .7;
