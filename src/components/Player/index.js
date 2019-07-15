@@ -146,11 +146,9 @@ class Player extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    compact: state.settings.compact
-  }
-}
+const mapStateToProps = state => ({
+  compact: state.settings.compact
+});
 
 const mapDispatchToProps = dispatch => {
   return {

@@ -25,10 +25,9 @@ const Button = ({
       className={
         cx(styles.btn, [className])
       }
+      {...rest}
     >
-      {
-        icon ? <i className={icon} /> : children
-      }
+      {icon ? <i className={icon} /> : children}
     </button>
   );
 }

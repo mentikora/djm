@@ -1,24 +1,29 @@
 import React from 'react';
 import styles from './player.module.scss';
 
-const Track = props => {
-  const { data } = props;
-  return (
-    <li className={styles.track}>
-      <p className={styles.name}>{data.name}</p>
-      <p className={styles.duration}>{data.duration}</p>
-    </li>
-  );
-}
-
+// const onTrackClick = (e) => {
+//   console.log(e.target.name);
+// }
 // add react-beautiful-dnd
-const Playlist = props => {
-  const { list } = props;
+const Playlist = ({ list }) => {
+  const onTrackClick = (e) => {
+    console.log(e.target);
+  }
   return (
     <ul className={styles.playlist}>
-      {
-        list.map(el => <Track key={el.name} data={el} />)
-      }
+      {list.map(el => {
+        return (
+          <li
+            key={el.name}
+            className={styles.track}
+            onClick={onTrackClick}
+            // onDoubleClick={this.onTrackDoubleClick}
+          >
+            <p className={styles.name}>{el.name}</p>
+            <p className={styles.duration}>{el.duration}</p>
+          </li>
+        );
+      })}
     </ul>
   );
 }
