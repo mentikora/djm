@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -22,48 +22,48 @@ const fakelist = [
   },
 ]
 
-class Player extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      speed: 100,
-      volume: 100,
-      lock: false,
-    }
+const PlayerBase = props => {
+  const [speed, onSpeedChange] = useState(100);
+  const [volume, onVolumeChange] = useState(100);
+  const [lock, lockPlayer] = useState(false);
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     speed: 100,
+  //     volume: 100,
+  //     lock: false,
+  //   }
 
-    this.inputUploadRef = React.createRef();
+  //   this.inputUploadRef = React.createRef();
 
-    this.onUploadPlaylist = this.onUploadPlaylist.bind(this);
-  }
+  //   this.onUploadPlaylist = this.onUploadPlaylist.bind(this);
+  // }
 
-  lockPlayer = () => {
-    this.setState(prevState => ({lock: !prevState.lock}));
-  }
+  // lockPlayer = () => {
+  //   this.setState(prevState => ({lock: !prevState.lock}));
+  // }
 
-  onSpeedChange(newPlayerSpeed) {
-    this.setState({
-      speed: newPlayerSpeed
-    })
-  }
-  onVolumeChange(newPlayerVolume) {
-    this.setState({
-      volume: newPlayerVolume
-    })
-  }
-  onUploadPlaylist(){
-    this.inputUploadRef.current.click();
-  }
+  // onSpeedChange(newPlayerSpeed) {
+  //   this.setState({
+  //     speed: newPlayerSpeed
+  //   })
+  // }
+  // onVolumeChange(newPlayerVolume) {
+  //   this.setState({
+  //     volume: newPlayerVolume
+  //   })
+  // }
+  // onUploadPlaylist(){
+  //   this.inputUploadRef.current.click();
+  // }
 
-  
-  render () {
+  // render () {
     const {
       deletePlayer,
-      data: {
-        id
-      },
+      data: { id },
       compact,
-      t
-    } = this.props;
+      t,
+    } = props;
     return (
       <div className={
         cx(
@@ -76,15 +76,15 @@ class Player extends React.Component {
             className={
               cx(
                 styles.playerControlButton,
-                {[styles.isActive]: this.state.lock}
+                {[styles.isActive]: lock}
               )
             }
-            onClick={this.lockPlayer}
+            onClick={() => lockPlayer(prev => !prev)}
             icon="icon-lock"
             title={t('lock')}
           />
           <Button
-            disabled={this.state.lock}
+            disabled={lock}
             className={styles.playerControlButton}
             onClick={() => deletePlayer(id)}
             icon="icon-cancel"
@@ -103,26 +103,26 @@ class Player extends React.Component {
                 type="file"
                 className={styles.hidden}
                 accept=".WAV, .MP3, .Ogg, .AAC"
-                ref={this.inputUploadRef}
+                // ref={this.inputUploadRef}
                 multiple
               />
               <Button
                 icon="icon-upload"
                 title={t('upload')}
-                onClick={this.onUploadPlaylist}
+                // onClick={this.onUploadPlaylist}
               />
             </div>
             <div className={styles.playspeed}>
               <Range
                 max={200}
                 icon="icon-sliders"
-                onChange={this.onSpeedChange.bind(this)}
+                // onChange={this.onSpeedChange.bind(this)}
               />
             </div>
             <div className={styles.volume}>
               <Range
                 icon="icon-volume-up"
-                onChange={this.onVolumeChange.bind(this)}
+                // onChange={this.onVolumeChange.bind(this)}
               />
             </div>
             <div className={styles.actions}>
@@ -144,7 +144,7 @@ class Player extends React.Component {
       </div>
     );
   }
-}
+// }
 
 const mapStateToProps = state => ({
   compact: state.settings.compact
@@ -156,4 +156,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default withTranslation()(connect(mapStateToProps, mapDispatchToProps)(Player));
+export const Player = withTranslation()(connect(mapStateToProps, mapDispatchToProps)(PlayerBase));

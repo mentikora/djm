@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Player from '../../components/Player';
+import { Player } from '../../components/Player';
 
 const PlayerListBase = props => {
   const { players } = props;
