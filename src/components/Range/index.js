@@ -7,8 +7,10 @@ const { func, number, string } = PropTypes;
 const Range = props => {
   const [value, handleRangeChange] = useState(100);
   const { min, max, icon } = props;
-  const onChange = e => handleRangeChange(e.target.value);
-
+  const onChange = e => {
+    handleRangeChange(e.target.value);
+    return props.onChange(e.target.value)
+  }
   return (
     <div className={styles.range}>
       <div className={styles.rangeMarks}>

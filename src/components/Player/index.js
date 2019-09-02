@@ -26,13 +26,6 @@ const PlayerBase = props => {
   const [speed, onSpeedChange] = useState(100);
   const [volume, onVolumeChange] = useState(100);
   const [lock, lockPlayer] = useState(false);
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     speed: 100,
-  //     volume: 100,
-  //     lock: false,
-  //   }
 
   //   this.inputUploadRef = React.createRef();
 
@@ -57,94 +50,92 @@ const PlayerBase = props => {
   //   this.inputUploadRef.current.click();
   // }
 
-  // render () {
-    const {
-      deletePlayer,
-      data: { id },
-      compact,
-      t,
-    } = props;
-    return (
-      <div className={
-        cx(
-          `${styles.player} shadow-4`,
-          {[styles.isCompact]: compact}
-        )
-      }>
-        <div className="text-right">
-          <Button
-            className={
-              cx(
-                styles.playerControlButton,
-                {[styles.isActive]: lock}
-              )
-            }
-            onClick={() => lockPlayer(prev => !prev)}
-            icon="icon-lock"
-            title={t('lock')}
-          />
-          <Button
-            disabled={lock}
-            className={styles.playerControlButton}
-            onClick={() => deletePlayer(id)}
-            icon="icon-cancel"
-            title={t('delete')}
-          />
-        </div>
-        <div className={styles.container}>
-          <div className={styles.side}>
-            <div className={styles.playlist}>
-              <Playlist list={fakelist} />
-            </div>
+  const {
+    deletePlayer,
+    data: { id },
+    compact,
+    t,
+  } = props;
+  return (
+    <div className={
+      cx(
+        `${styles.player} shadow-4`,
+        {[styles.isCompact]: compact}
+      )
+    }>
+      <div className="text-right">
+        <Button
+          onClick={() => lockPlayer(prev => !prev)}
+          className={
+            cx(
+              styles.playerControlButton,
+              {[styles.isActive]: lock}
+            )
+          }
+          icon="icon-lock"
+          title={t('lock')}
+        />
+        <Button
+          onClick={() => deletePlayer(id)}
+          disabled={lock}
+          className={styles.playerControlButton}
+          icon="icon-cancel"
+          title={t('delete')}
+        />
+      </div>
+      <div className={styles.container}>
+        <div className={styles.side}>
+          <div className={styles.playlist}>
+            <Playlist list={fakelist} />
           </div>
-          <div className={styles.side}>
-            <div className={styles.actions}>
-              <input
-                type="file"
-                className={styles.hidden}
-                accept=".WAV, .MP3, .Ogg, .AAC"
-                // ref={this.inputUploadRef}
-                multiple
-              />
-              <Button
-                icon="icon-upload"
-                title={t('upload')}
-                // onClick={this.onUploadPlaylist}
-              />
-            </div>
-            <div className={styles.playspeed}>
-              <Range
-                max={200}
-                icon="icon-sliders"
-                // onChange={this.onSpeedChange.bind(this)}
-              />
-            </div>
-            <div className={styles.volume}>
-              <Range
-                icon="icon-volume-up"
-                // onChange={this.onVolumeChange.bind(this)}
-              />
-            </div>
-            <div className={styles.actions}>
-              <Button
-                icon="icon-fast-bw"
-                title={t('prev')}
-              />
-              <Button
-                icon="icon-play"
-                title={t('play')}
-              />
-              <Button
-                icon="icon-fast-fw"
-                title={t('next')}
-              />
-            </div>
+        </div>
+        <div className={styles.side}>
+          <div className={styles.actions}>
+            <input
+              type="file"
+              className={styles.hidden}
+              accept=".WAV, .MP3, .Ogg, .AAC"
+              // ref={this.inputUploadRef}
+              multiple
+            />
+            <Button
+              icon="icon-upload"
+              title={t('upload')}
+              // onClick={this.onUploadPlaylist}
+            />
+          </div>
+          <div className={styles.playspeed}>
+            <Range
+              max={200}
+              icon="icon-sliders"
+              onChange={speed => onSpeedChange(speed)}
+            />
+          </div>
+          <div className={styles.volume}>
+            <Range
+              icon="icon-volume-up"
+              onChange={volume => onVolumeChange(volume)}
+            />
+          </div>
+          <div className={styles.actions}>
+            <Button
+              icon="icon-fast-bw"
+              title={t('prev')}
+            />
+            <Button
+              icon="icon-play"
+              title={t('play')}
+            />
+            <Button
+              icon="icon-fast-fw"
+              title={t('next')}
+            />
           </div>
         </div>
       </div>
-    );
-  }
-// }
+    </div>
+  );
+};
 
 const mapStateToProps = state => ({
   compact: state.settings.compact
